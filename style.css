@@ -1,34 +1,186 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* CSS Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 2rem;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --background: #f8fafc;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+  --border-focus: #3b82f6;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius: 0.5rem;
 }
 
-.light {
-  font-weight: 300;
-}
-
-.content {
-  height: 100%;
-  width: 100%;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--background);
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Container and Card Layout */
+.container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.converter-card {
+  background: var(--card-background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.currency-input,
+.amount-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--card-background);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.currency-input:focus,
+.amount-input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+.currency-input:hover,
+.amount-input:hover {
+  border-color: var(--text-secondary);
+}
+
+/* Convert Button */
+.convert-btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: var(--primary-color);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1.5rem;
+}
+
+.convert-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.convert-btn:active {
+  transform: translateY(0);
+}
+
+.convert-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.2);
+}
+
+/* Result Display */
+.result {
+  text-align: center;
+}
+
+.output {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding: 1rem;
+  background: rgb(59 130 246 / 0.05);
+  border-radius: var(--radius);
+  border: 1px solid rgb(59 130 246 / 0.1);
+  min-height: 3.5rem;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.content > div {
-  margin: 0.2em;
-  display: flex;
+.output:empty {
+  background: transparent;
+  border: 1px dashed var(--border-color);
+  color: var(--text-secondary);
 }
 
-.content > div > input {
-  margin: 0.1em;
+.output:empty::before {
+  content: "Result will appear here";
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
-.convert {
-  display: flex;
-  flex-direction: row;
+/* Responsive Design */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+  
+  .converter-card {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --background: #111827;
+    --card-background: #1f2937;
+    --border-color: #374151;
+  }
 }

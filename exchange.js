@@ -13,9 +13,9 @@ async function getRates(currencyCode) {
 
 async function convert() {
     console.log('convert function triggered')
-    const from = document.querySelector('.from>input').value.split(',')[0];
-    const to = document.querySelector('.to>input').value.split(',')[0];
-    const amount = document.querySelector('.amount>input').value;
+    const from = document.querySelector('#from-currency').value.split(',')[0];
+    const to = document.querySelector('#to-currency').value.split(',')[0];
+    const amount = document.querySelector('#amount').value;
 
     const rates = await getRates(from);
     const value = rates[to] * amount;

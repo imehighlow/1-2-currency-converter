@@ -1,30 +1,40 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" class="css">
-    <title>Exchange Rate</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Currency Converter</title>
 </head>
 
 <body>
-    <div class="content">
-        <div class="header">Currency Exchange Rate</div>
-        <div class="from" id="from">
-            From: <input list="currency" value="USD, United States Dollar">
+    <main class="container">
+        <div class="converter-card">
+            <h1 class="title">Currency Converter</h1>
+            
+            <div class="input-group">
+                <label for="from-currency">From</label>
+                <input id="from-currency" list="currency" value="USD, United States Dollar" class="currency-input">
+            </div>
+            
+            <div class="input-group">
+                <label for="to-currency">To</label>
+                <input id="to-currency" list="currency" value="EUR, Euro" class="currency-input">
+            </div>
+            
+            <div class="input-group">
+                <label for="amount">Amount</label>
+                <input id="amount" type="number" min="0.00" step="0.01" value="100" class="amount-input">
+            </div>
+            
+            <button type="button" id="convertBtn" class="convert-btn">Convert</button>
+            
+            <div class="result">
+                <div class="output"></div>
+            </div>
         </div>
-        <div class="to" id="to">
-            To: <input list="currency" value="EUR, Euro">
-        </div>
-        <div class="amount" id="amount">
-            Amount:
-            <input type="number" min="0.00" step="0.01" class="text" value="100">
-        </div>
-        <div class="convert">
-            <div><button type="button" id="convertBtn">Convert</button>
-            <div class="output"></div>
-        </div>
-    </div>
+    </main>
 
     <datalist id="currency">
         <option value="AED, UAE Dirham">
